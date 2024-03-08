@@ -3,6 +3,7 @@ package com.learning.course.entities.pk;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.learning.course.entities.Order;
 import com.learning.course.entities.Product;
 
@@ -22,7 +23,6 @@ public class OrderItemPK implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="product_id")
 	private Product product;
-	
 	
 	public Order getOrder() {
 		return order;
