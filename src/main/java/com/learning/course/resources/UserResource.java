@@ -2,7 +2,6 @@ package com.learning.course.resources;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,9 +34,9 @@ public class UserResource {
 	}
 	
 	@GetMapping(value="/{id}")
-	public ResponseEntity<Optional<User>> findById(@PathVariable Integer id){
+	public ResponseEntity<User> findById(@PathVariable Integer id){
 		
-		Optional<User> user = userService.findById(id);
+		User user = userService.findById(id);
 		
 		return ResponseEntity.ok().body(user);
 		
