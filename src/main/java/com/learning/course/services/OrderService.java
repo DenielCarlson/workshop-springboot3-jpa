@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.learning.course.entities.Order;
 import com.learning.course.repositories.OrderRespository;
+import com.learning.course.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class OrderService {
@@ -22,10 +23,10 @@ public class OrderService {
 		return orders;
 	}
 	
-	public Optional<Order> findById(Integer id){
+	public Order findById(Integer id){
 		
 		Optional<Order> order = orderRespository.findById(id);
 		
-		return order;
+		return order.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 }

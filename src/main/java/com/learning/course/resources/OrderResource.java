@@ -1,7 +1,6 @@
 package com.learning.course.resources;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +28,9 @@ public class OrderResource {
 	}
 	
 	@GetMapping(path = "{id}")
-	public ResponseEntity<Optional<Order>> findById(@PathVariable Integer id){
+	public ResponseEntity<Order> findById(@PathVariable Integer id){
 	
-		Optional<Order> order = orderService.findById(id);
+		Order order = orderService.findById(id);
 		
 		return ResponseEntity.ok().body(order);
 	}

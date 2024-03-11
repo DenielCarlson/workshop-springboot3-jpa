@@ -1,7 +1,6 @@
 package com.learning.course.resources;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +29,8 @@ public class CategoryResource {
 	}
 	
 	@GetMapping(path="/{id}")
-	public ResponseEntity<Optional<Category>> findById(@PathVariable Integer id){
-		Optional<Category> category = categoryService.findById(id);
+	public ResponseEntity<Category> findById(@PathVariable Integer id){
+		Category category = categoryService.findById(id);
 		
 		return ResponseEntity.ok().body(category);
 		

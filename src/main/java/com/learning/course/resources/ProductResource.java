@@ -1,7 +1,6 @@
 package com.learning.course.resources;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +28,9 @@ public class ProductResource {
 	}
 	
 	@GetMapping(path="/{id}")
-	public ResponseEntity<Optional<Product>> findById(@PathVariable Integer id){
+	public ResponseEntity<Product> findById(@PathVariable Integer id){
 		
-		Optional<Product> product = productService.findById(id);
+		Product product = productService.findById(id);
 		
 		return ResponseEntity.ok().body(product);
 		
